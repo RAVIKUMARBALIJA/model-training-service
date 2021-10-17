@@ -12,7 +12,7 @@ RUN apt update && apt install -y openjdk-11-jdk && export JAVA_HOME=/usr/lib/jvm
 
 # Install requirements
 COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt && python -m nltk.downloader punkt
+RUN pip install -r requirements.txt && python -m nltk.downloader punkt && python -m nltk.downloader stopwords
 
 COPY . /app
 
