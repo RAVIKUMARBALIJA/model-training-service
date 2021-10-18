@@ -22,11 +22,17 @@
 
 ### once both containers are up, run below commands to check the preproccessed file.
 `sudo docker exec -it model-training-service_preprocessor_1 bash`
--`cd data`
--`ls preprocessed*`
+
+`cd data`
+
+`ls preprocessed*`
+
 `You should see a file starting with preprocesseddata_{}.csv`
+
 `Note : To reduce the computatio time, the preprocess enginer is setup for 5000 records however we can change no of records by doing below modifications`
+
 `- add {noofrecords argument in preprocessor/Dockerfile}`
+
 `ENTRYPOINT python preprocess.py {noofrecords} && sleep 1800`
 
 ### milestone report has been added under ./milestonereport
