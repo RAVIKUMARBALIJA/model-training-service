@@ -16,4 +16,4 @@ RUN pip install -r requirements.txt && python -m nltk.downloader punkt && python
 
 COPY . /app
 
-ENTRYPOINT python preprocess.py
+ENTRYPOINT python preprocess.py && sleep 1800

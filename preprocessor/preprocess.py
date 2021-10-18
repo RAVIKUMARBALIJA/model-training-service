@@ -85,6 +85,9 @@ class Connector:
             words=' '.join([stemmer.stem(word) for word in words])
             updated_corpus.append(words)
         print('preprocessing is completed')
+        self.cur.close()
+        self.db.close()
+
         return updated_corpus,topic
     """
     def __del__(self):
@@ -105,6 +108,6 @@ if __name__=='__main__':
     corpus,topic=connector.preprocess(spark_df,given_length)
     #below just to store the preprocessed data
     pandas_df=pd.DataFrame({'text':corpus,'topic':topic})
-    pandas_df.to_csv(f'preprocesseddata_{given_length}.csv',sep='|',index=False)
+    pandas_df.to_csv(f'./data/preprocesseddata_{given_length}.csv',sep='|',index=False)
     
 
